@@ -12,20 +12,29 @@ function startStopTimer()
         toogleTimerButtonText(); 
     }
     else 
-    {   
-        if(!isTimeUp())
+    {   if(isEditingInProgress())
         {
-        changeCircleToGreen()
-        isTimerOn=true;             //if we put var timer does not stop
-        toogleTimerButtonText(); 
-        timerId=startTimer();
+            showErrorMessage("Please complete edit and then start the timer")
+        }
+        else if(!isTimeUp())
+        {
+            isTimerOn=true;             //if we put var timer does not stop
+            timerId=startTimer();
         }
     }
 }
-
-function startTimer()
+function isEditingInProgress()
 {
     
+    let minuteNode=getMinuteNode();
+    if(minuteNode.disabled)
+    return false;
+    return true;
+}
+function startTimer()
+{
+    toogleTimerButtonText();
+    changeCircleToGreen()
     let minutesLeft=getMinutes();
     let secondsLeft=getSeconds();
     var timerId=setInterval(decreaseTimerFields(minutesLeft,secondsLeft),1000);
@@ -108,8 +117,9 @@ function editTimerFields()
     }
     else
     {
-        showErrorMessage();
+        showErrorMessage("Input Fields are not valid");
     }
+    
 }
 
 function toogleTimerButtonText()
@@ -129,9 +139,10 @@ function changeCircleToRed()
 
 }
 
-function showErrorMessage()
+function showErrorMessage(errorMessage)
 {
     let errorNode=getErrorNode();
+    errorNode.innerHTML=errorMessage;
     errorNode.style.display="block";
 }
 function clearErrorMessage()

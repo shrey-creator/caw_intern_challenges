@@ -112,3 +112,6 @@ input[type=text]:disabled {
 .settings:hover {
   opacity: 1;
 }
+#error{
+  display: none;
+}

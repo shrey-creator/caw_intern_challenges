@@ -1,3 +1,6 @@
+import {getMinuteNode,getSeconds,getMinutes} from './getterMethod.js'
+import {timerButton} from '../index.js';
+
 function isEditingInProgress()
 {
     
@@ -25,7 +28,10 @@ function isButtonTextStart()
 function areInputValid(minutes,seconds,minuteNode)
 {
     if(minutes>59 || seconds>59 || minutes<0 || seconds<0 ||(minutes==0 && seconds==0 && !minuteNode.disabled)|| !isInputInteger(minutes,seconds))
+    {
+        console.log("not valid")
     return false;
+    }
     return true;
 
 }
@@ -38,3 +44,5 @@ function isInputInteger(minutes,seconds)
         return false;
       }
 }
+
+export  {isEditingInProgress,isTimeUp,isButtonTextStart,isInputInteger,areInputValid};

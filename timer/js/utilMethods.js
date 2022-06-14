@@ -1,3 +1,7 @@
+import {isButtonTextStart} from './boolmethods.js'
+import {getCircleNode,getMinuteNode,getErrorNode,getSecondsNode} from './getterMethod.js'
+import {timerButton,startStopTimer} from '../index.js';
+
 function decreaseTimerFields(minutesLeft,secondsLeft)
 {
     return function()
@@ -50,10 +54,9 @@ function appendZeroBeforeSec(secondsLeft)
         secondsLeft="0"+secondsLeft;
     return secondsLeft;
 }
-
-
 function toogleTimerButtonText()
 {
+   
     timerButton.innerHTML=isButtonTextStart()?"stop":"start";
 }
 
@@ -80,3 +83,5 @@ function clearErrorMessage()
     let errorNode=getErrorNode();
     errorNode.style.display="none";
 }
+
+export  {decreaseTimerFields,setTimerFields,appendZeroBeforeMin,appendZeroBeforeSec,toogleTimerButtonText,changeCircleToGreen,changeCircleToRed,showErrorMessage,clearErrorMessage};

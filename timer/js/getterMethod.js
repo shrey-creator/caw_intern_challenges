@@ -35,3 +35,5 @@ function getSeconds()
     let secondNode=getSecondsNode();
     return secondNode.value; 
 }
+
+export {getCircleNode,getMinuteNode,getSeconds,getErrorNode,getMinutes,getSecondsNode};

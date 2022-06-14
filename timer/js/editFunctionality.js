@@ -1,3 +1,8 @@
+import {isTimerOn} from '../index.js';
+import {getMinuteNode,getSecondsNode} from './getterMethod.js'
+import {appendZeroBeforeMin,appendZeroBeforeSec,showErrorMessage,clearErrorMessage} from './utilMethods.js'
+import {areInputValid} from './boolmethods.js'
+
 
 var settingButton=document.querySelector(".settings");
 settingButton.addEventListener('click',editTimerFields);
@@ -22,3 +27,4 @@ function editTimerFields()
         showErrorMessage("Input Fields are not valid");
     }   
 }
+

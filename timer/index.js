@@ -1,7 +1,11 @@
+import  {isEditingInProgress,isTimeUp} from './js/boolmethods.js'
+import  {decreaseTimerFields,toogleTimerButtonText,changeCircleToGreen,showErrorMessage} from './js/utilMethods.js'
+import {getSeconds,getMinutes} from './js/getterMethod.js'
 
 
 var timerButton=document.querySelector(".start")
 var isTimerOn=false;
+var timerId=false;
 function startStopTimer()
 {
     if(isTimerOn)
@@ -40,6 +44,10 @@ function startTimer()
 
 
 timerButton.addEventListener("click",startStopTimer);
+
+
+
+export  {timerButton,timerId,isTimerOn,startStopTimer};
 
 
 

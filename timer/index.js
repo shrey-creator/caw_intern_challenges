@@ -1,5 +1,5 @@
 import  {isEditingInProgress,isTimeUp} from './js/boolmethods.js'
-import  {decreaseTimerFields,toogleTimerButtonText,changeCircleToGreen,showErrorMessage} from './js/utilMethods.js'
+import  {decreaseTimerFields,toogleTimerButtonText,changeCircleToGreen,showErrorMessage, clearErrorMessage} from './js/utilMethods.js'
 import {getSeconds,getMinutes} from './js/getterMethod.js'
 
 
@@ -10,6 +10,7 @@ function startStopTimer()
 {
     if(isTimerOn)
     {  
+        clearErrorMessage();
         isTimerOn=false;
         clearInterval(timerId)
         toogleTimerButtonText(); 
@@ -34,7 +35,8 @@ function startStopTimer()
 function startTimer()
 {
     toogleTimerButtonText();
-    changeCircleToGreen()
+    changeCircleToGreen();
+    clearErrorMessage();
     let minutesLeft=getMinutes();
     let secondsLeft=getSeconds();
     var timerId=setInterval(decreaseTimerFields(minutesLeft,secondsLeft),1000);

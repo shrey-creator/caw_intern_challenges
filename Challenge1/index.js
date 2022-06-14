@@ -18,8 +18,8 @@ function startStopTimer()
         }
         else if(!isTimeUp())
         {
-            isTimerOn=true;             //if we put var timer does not stop
-            timerId=startTimer();
+            isTimerOn=true;             
+            timerId=startTimer();       //TO ask:if we put var, timer does not stop
         }
     }
 }
@@ -61,10 +61,20 @@ function isButtonTextStart()
 }
 function areInputValid(minutes,seconds)
 {
-    if(minutes>59 || seconds>59 || minutes<0 || seconds<0)
+
+    console.log(Number.isInteger(minutes));
+    if(minutes>59 || seconds>59 || minutes<0 || seconds<0 || !isInputInteger(minutes,seconds))
     return false;
     return true;
 
+}
+function isInputInteger(minutes,seconds)
+{
+    if (minutes.indexOf('.') === -1 && seconds.indexOf('.')===-1) {
+        return true;
+      } else {
+        return false;
+      }
 }
 
 // methods to change
@@ -98,25 +108,42 @@ function setTimerFields(minutesLeft,secondsLeft)
     
     let minuteNode=getMinuteNode();
     let secondNode=getSecondsNode();
+    
+    minuteNode.value=appendZeroBeforeMin(minutesLeft);
+    secondNode.value=appendZeroBeforeSec(secondsLeft);
+}
+function appendZeroBeforeMin(minutesLeft)
+{
     if(minutesLeft<=9)
         minutesLeft="0"+parseInt(minutesLeft);
+    return minutesLeft;
+    
+
+}
+function appendZeroBeforeSec(secondsLeft)
+{
     if(secondsLeft<=9)
         secondsLeft="0"+parseInt(secondsLeft);
-    minuteNode.value=minutesLeft;
-    secondNode.value=secondsLeft;
+    return secondsLeft;
 }
 function editTimerFields()
 {
     let minuteNode=getMinuteNode();
     let secondNode=getSecondsNode();
-    if(areInputValid(minuteNode.value,secondNode.value))
+    if(areInputValid(minuteNode.value,secondNode.value) && !isTimerOn)
     {
     clearErrorMessage();
     minuteNode.disabled=minuteNode.disabled==true?false:true;
     secondNode.disabled=secondNode.disabled==true?false:true;
+    minuteNode.value=appendZeroBeforeMin(minuteNode.value);
+    secondNode.value=appendZeroBeforeSec(secondNode.value)
     }
     else
     {
+        if(isTimerOn){
+            showErrorMessage("Stop the timer to edit fields")
+        }
+        else
         showErrorMessage("Input Fields are not valid");
     }
     

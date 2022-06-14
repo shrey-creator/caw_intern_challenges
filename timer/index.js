@@ -137,7 +137,10 @@ function editTimerFields()
 {
     let minuteNode=getMinuteNode();
     let secondNode=getSecondsNode();
-    if(areInputValid(minuteNode.value,secondNode.value,minuteNode) && !isTimerOn)
+    if(isTimerOn){
+        showErrorMessage("Stop the timer to edit fields")
+    }
+    else if(areInputValid(minuteNode.value,secondNode.value,minuteNode) )
     {
     clearErrorMessage();
     minuteNode.disabled=minuteNode.disabled==true?false:true;
@@ -147,13 +150,9 @@ function editTimerFields()
     }
     else
     {
-        if(isTimerOn){
-            showErrorMessage("Stop the timer to edit fields")
-        }
-        else
+       
         showErrorMessage("Input Fields are not valid");
-    }
-    
+    }   
 }
 
 function toogleTimerButtonText()

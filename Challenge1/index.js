@@ -16,6 +16,10 @@ function startStopTimer()
         {
             showErrorMessage("Please complete edit and then start the timer")
         }
+        else if(isTimeUp())
+        {
+            showErrorMessage("Time is up");
+        }
         else if(!isTimeUp())
         {
             isTimerOn=true;             
@@ -59,18 +63,17 @@ function isButtonTextStart()
     let timerButtonText=timerButton.innerHTML;
     return timerButtonText=="start"?true:false;
 }
-function areInputValid(minutes,seconds)
+function areInputValid(minutes,seconds,minuteNode)
 {
-
-    console.log(Number.isInteger(minutes));
-    if(minutes>59 || seconds>59 || minutes<0 || seconds<0 || !isInputInteger(minutes,seconds))
+    if(minutes>59 || seconds>59 || minutes<0 || seconds<0 ||(minutes==0 && seconds==0 && !minuteNode.disabled)|| !isInputInteger(minutes,seconds))
     return false;
     return true;
 
 }
+
 function isInputInteger(minutes,seconds)
 {
-    if (minutes.indexOf('.') === -1 && seconds.indexOf('.')===-1) {
+    if (minutes.indexOf('.') === -1 && seconds.indexOf('.')===-1 && !isNaN(minutes) && !isNaN(seconds)) {
         return true;
       } else {
         return false;
@@ -82,13 +85,7 @@ function decreaseTimerFields(minutesLeft,secondsLeft)
 {
     return function()
     {
-        if(minutesLeft==0 && secondsLeft==0)
-        {
-            changeCircleToRed();
-            startStopTimer();
-
-        }
-        else{
+    
         if(secondsLeft==0)
         {
             minutesLeft=--minutesLeft;
@@ -100,37 +97,47 @@ function decreaseTimerFields(minutesLeft,secondsLeft)
         }
     
         setTimerFields(minutesLeft,secondsLeft);
-    }
+    
     }
 }
 function setTimerFields(minutesLeft,secondsLeft)
 {
+    
     
     let minuteNode=getMinuteNode();
     let secondNode=getSecondsNode();
     
     minuteNode.value=appendZeroBeforeMin(minutesLeft);
     secondNode.value=appendZeroBeforeSec(secondsLeft);
+    
+    if(minutesLeft==0 && secondsLeft==0)
+    {
+        changeCircleToRed();
+        startStopTimer();
+
+    }
 }
 function appendZeroBeforeMin(minutesLeft)
 {
+    minutesLeft=parseInt(minutesLeft);
     if(minutesLeft<=9)
-        minutesLeft="0"+parseInt(minutesLeft);
+        minutesLeft="0"+minutesLeft;
     return minutesLeft;
     
 
 }
 function appendZeroBeforeSec(secondsLeft)
 {
+    secondsLeft=parseInt(secondsLeft);
     if(secondsLeft<=9)
-        secondsLeft="0"+parseInt(secondsLeft);
+        secondsLeft="0"+secondsLeft;
     return secondsLeft;
 }
 function editTimerFields()
 {
     let minuteNode=getMinuteNode();
     let secondNode=getSecondsNode();
-    if(areInputValid(minuteNode.value,secondNode.value) && !isTimerOn)
+    if(areInputValid(minuteNode.value,secondNode.value,minuteNode) && !isTimerOn)
     {
     clearErrorMessage();
     minuteNode.disabled=minuteNode.disabled==true?false:true;
@@ -159,11 +166,11 @@ function changeCircleToGreen()
     let circleNode=getCircleNode();
     circleNode.style.stroke='#09A65A';
 }
-function changeCircleToRed()
+function changeCircleToRed(callback)
 {
     let circleNode=getCircleNode();
     circleNode.style.stroke='red';
-
+    setTimeout(() => alert("Time is up"), 0);
 }
 
 function showErrorMessage(errorMessage)

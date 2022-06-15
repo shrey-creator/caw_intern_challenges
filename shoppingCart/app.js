@@ -42,3 +42,18 @@ const menuItems = [
         count: 0
     }
 ]
+
+var addToCartBtn=document.querySelectorAll('.add');
+function addClickListenerToAddBtn()
+{
+    addToCartBtn.forEach((addBtn)=>{
+        addBtn.addEventListener("click",pushToCart)
+    })
+}
+function pushToCart(event)
+{
+    console.log(event.target.parentNode.parentNode)
+    console.log("pushed")
+    
+}
+addClickListenerToAddBtn();

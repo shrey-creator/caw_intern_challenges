@@ -4,9 +4,8 @@ import {appendZeroBeforeMin,appendZeroBeforeSec,showErrorMessage,clearErrorMessa
 import {areInputValid} from './boolmethods.js'
 
 
-var settingButton=document.querySelector(".settings");
-settingButton.addEventListener('click',editTimerFields);
-function editTimerFields()
+let settingButton=document.querySelector(".settings");
+const editTimerFields=()=>
 {
     let minuteNode=getMinuteNode();
     let secondNode=getSecondsNode();
@@ -27,4 +26,6 @@ function editTimerFields()
         showErrorMessage("Input Fields are not valid");
     }   
 }
+
+settingButton.addEventListener('click',editTimerFields);
 

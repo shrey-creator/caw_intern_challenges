@@ -1,17 +1,17 @@
-function getCircleNode()
+const getCircleNode=()=>
 {
     let circleNode=document.querySelector(".ring");
     return circleNode;
 
 }
-function getMinuteNode()
+const getMinuteNode=()=>
 {
     let minutesDivNode=document.querySelector(".minutes");
     let minuteNode=minutesDivNode.children[0];
     return minuteNode;
 
 }
-function getSecondsNode()
+const getSecondsNode=()=>
 {
     
     let secondsDivNode=document.querySelector(".seconds");
@@ -19,18 +19,18 @@ function getSecondsNode()
     return secondNode;
 
 }
-function getErrorNode()
+const getErrorNode=()=>
 {   
     
     let errorNode=document.querySelector("#error");
     return errorNode;
 }
-function getMinutes()
+const getMinutes=()=>
 {   
     let minuteNode=getMinuteNode();
     return minuteNode.value;
 }
-function getSeconds()
+const getSeconds=()=>
 {
     let secondNode=getSecondsNode();
     return secondNode.value; 

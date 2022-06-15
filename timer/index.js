@@ -3,10 +3,10 @@ import  {decreaseTimerFields,toogleTimerButtonText,changeCircleToGreen,showError
 import {getSeconds,getMinutes} from './js/getterMethod.js'
 
 
-var timerButton=document.querySelector(".start")
-var isTimerOn=false;
-var timerId=false;
-function startStopTimer()
+let timerButton=document.querySelector(".start")
+let isTimerOn=false;
+let timerId=false;
+const startStopTimer=()=>
 {
     if(isTimerOn)
     {  
@@ -32,7 +32,7 @@ function startStopTimer()
     }
 }
 
-function startTimer()
+const startTimer=()=>
 {
     toogleTimerButtonText();
     changeCircleToGreen();

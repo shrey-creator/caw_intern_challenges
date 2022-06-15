@@ -2,7 +2,7 @@ import {isButtonTextStart} from './boolmethods.js'
 import {getCircleNode,getMinuteNode,getErrorNode,getSecondsNode} from './getterMethod.js'
 import {timerButton,startStopTimer} from '../index.js';
 
-function decreaseTimerFields(minutesLeft,secondsLeft)
+const decreaseTimerFields=(minutesLeft,secondsLeft)=>
 {
     return function()
     {
@@ -21,7 +21,7 @@ function decreaseTimerFields(minutesLeft,secondsLeft)
     
     }
 }
-function setTimerFields(minutesLeft,secondsLeft)
+const setTimerFields=(minutesLeft,secondsLeft)=>
 {
     
     
@@ -38,7 +38,7 @@ function setTimerFields(minutesLeft,secondsLeft)
 
     }
 }
-function appendZeroBeforeMin(minutesLeft)
+const appendZeroBeforeMin=(minutesLeft)=>
 {
     minutesLeft=parseInt(minutesLeft);
     if(minutesLeft<=9)
@@ -47,38 +47,38 @@ function appendZeroBeforeMin(minutesLeft)
     
 
 }
-function appendZeroBeforeSec(secondsLeft)
+const appendZeroBeforeSec=(secondsLeft)=>
 {
     secondsLeft=parseInt(secondsLeft);
     if(secondsLeft<=9)
         secondsLeft="0"+secondsLeft;
     return secondsLeft;
 }
-function toogleTimerButtonText()
+const toogleTimerButtonText=()=>
 {
    
     timerButton.innerHTML=isButtonTextStart()?"stop":"start";
 }
 
-function changeCircleToGreen()
+const changeCircleToGreen=()=>
 {
     let circleNode=getCircleNode();
     circleNode.style.stroke='#09A65A';
 }
-function changeCircleToRed(callback)
+const changeCircleToRed=(callback)=>
 {
     let circleNode=getCircleNode();
     circleNode.style.stroke='red';
     setTimeout(() => alert("Time is up"), 0);
 }
 
-function showErrorMessage(errorMessage)
+const showErrorMessage=(errorMessage)=>
 {
     let errorNode=getErrorNode();
     errorNode.innerHTML=errorMessage;
     errorNode.style.display="block";
 }
-function clearErrorMessage()
+const clearErrorMessage=()=>
 {
     let errorNode=getErrorNode();
     errorNode.style.display="none";

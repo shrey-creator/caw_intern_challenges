@@ -1,3 +1,5 @@
+import {getCartItemDiv,getMenuItemDetails,getMenuItemDiv} from './js/getterMethods.js'
+
 const menuItems = [
     {
         name: 'French Fries with Ketchup',
@@ -14,7 +16,7 @@ const menuItems = [
         count: 0
     },
     {
-        name: 'Spaghetti Meat Sauce',
+        name: 'Spaghetti with Meat Sauce',
         price: 782,
         image: 'plate__spaghetti-meat-sauce.png',
         alt: 'Spaghetti with Meat Sauce',
@@ -48,12 +50,20 @@ function addClickListenerToAddBtn()
 {
     addToCartBtn.forEach((addBtn)=>{
         addBtn.addEventListener("click",pushToCart)
-    })
+    });
 }
 function pushToCart(event)
 {
-    console.log(event.target.parentNode.parentNode)
-    console.log("pushed")
+    let selectMenuItemNode=getMenuItemDiv(event);
+    let menuItemName=selectMenuItemNode.querySelector(".menu-item").textContent;
+    let selectMenuItemDetail=getMenuItemDetails(menuItemName);
+    let itemToAddCart=getCartItemDiv(selectMenuItemDetail);
+    let cartDiv=document.querySelectorAll(".cart-summary")[0];
+    
+    cartDiv.appendChild(itemToAddCart)
+
     
 }
 addClickListenerToAddBtn();
+
+export {menuItems};

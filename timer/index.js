@@ -4,14 +4,14 @@ import {getSeconds,getMinutes} from './js/getterMethod.js'
 
 let timerButton=document.querySelector(".start")
 let isTimerOn=false;
- let timerId=false;
+let timerId=false;
 const startStopTimer=()=>
 {
     if(isTimerOn)
     {  
         isTimerOn=false;
         clearErrorMessage();
-        clearInterval(timerId)
+        clearInterval(timerId);
         toogleTimerButtonText(); 
     }
     else 

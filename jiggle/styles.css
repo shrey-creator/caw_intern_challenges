@@ -9,7 +9,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+*:focus{
+  outline: 0 !important;
+}
 .keyboard {
   background: #F6F6F6;
   padding: 45px 50px;

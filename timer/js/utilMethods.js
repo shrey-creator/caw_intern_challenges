@@ -65,7 +65,7 @@ const changeCircleToGreen=()=>
     let circleNode=getCircleNode();
     circleNode.style.stroke='#09A65A';
 }
-const changeCircleToRed=()=>
+const changeCircleToRed=(callback)=>
 {
     let circleNode=getCircleNode();
     circleNode.style.stroke='red';

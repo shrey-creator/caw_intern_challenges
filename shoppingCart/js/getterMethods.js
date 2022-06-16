@@ -1,4 +1,4 @@
-import { menuItems } from "../app.js";
+import { menuItems } from "../index.js";
 import { decreaseQtyInCart, increaseQtyInCart } from "./utilFunctions.js";
 export const getCartItemDiv = (menuItemDetail) => {
   let listNode = document.createElement("li");

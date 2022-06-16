@@ -1,4 +1,4 @@
-import { pushToCart } from "../app.js";
+import { pushToCart } from "../index.js";
 import {
   getCartItemPrice,
   getBtnParentDiv,

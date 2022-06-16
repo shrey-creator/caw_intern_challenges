@@ -51,7 +51,9 @@ const isInputNaN = (minutes, seconds) => {
   return false;
 };
 const isInputDecimal = (minutes, seconds) => {
-  if (minutes.indexOf(".") === -1 && seconds.indexOf(".") === -1) return true;
+  if( minutes.indexOf(".") === -1 && seconds.indexOf(".") === -1) {
+    return true;
+  }
   return false;
 };
 

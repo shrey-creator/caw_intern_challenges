@@ -15,8 +15,8 @@ const editTimerFields=()=>
     else if(areInputValid(minuteNode.value,secondNode.value,minuteNode) )
     {
     clearErrorMessage();
-    minuteNode.disabled=minuteNode.disabled==true?false:true;
-    secondNode.disabled=secondNode.disabled==true?false:true;
+    minuteNode.disabled = minuteNode.disabled ?false:true;
+    secondNode.disabled=secondNode.disabled===true?false:true;
     minuteNode.value=appendZeroBeforeMin(minuteNode.value);
     secondNode.value=appendZeroBeforeSec(secondNode.value)
     }

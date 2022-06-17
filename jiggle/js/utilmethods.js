@@ -1,4 +1,4 @@
-import { allKeyNode } from '../index.js';
+import { allKeyNode } from './boolmethod.js';
 import {getRandomKeyNumber} from './getterMethod.js';
 export const changeTargetKey = (keyNode) => {
     keyNode.classList.remove("jiggle");

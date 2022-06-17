@@ -1,4 +1,3 @@
-export let allKeyNode = document.querySelectorAll(".key");
 import { checkIfRightKeyPressed } from "./js/boolmethod.js";
 const onKeyPress = (event) => {
   let pressedKey = event.key.toUpperCase();

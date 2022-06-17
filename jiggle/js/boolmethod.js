@@ -1,5 +1,8 @@
-import { allKeyNode } from "../index.js";
+
 import { changeTargetKey } from "./utilmethods.js";
+
+
+export let allKeyNode = document.querySelectorAll(".key");
 
 export const checkIfRightKeyPressed = (pressedKey) => {
     allKeyNode.forEach((keyNode) => {

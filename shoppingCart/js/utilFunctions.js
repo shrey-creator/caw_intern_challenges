@@ -1,10 +1,28 @@
-import { pushToCart } from "../index.js";
 import {
   getCartItemPrice,
   getBtnParentDiv,
   getMenuItemToChange,
   getAddCartButton,
+  getMenuItemDetails,
+  getMenuItemDiv,
+  getCartItemDiv,
 } from "./getterMethods.js";
+
+
+export const pushToCart = (event) => {
+ 
+  let selectMenuItemNode = getMenuItemDiv(event);
+  let menuItemName = selectMenuItemNode.querySelector(".menu-item").textContent;
+  let selectMenuItemDetail = getMenuItemDetails(menuItemName);
+  let itemToAddCart = getCartItemDiv(selectMenuItemDetail);
+  let cartDiv = document.querySelectorAll(".cart-summary")[0];
+
+  changeAddToCartToInCart(selectMenuItemNode);
+  changeCartSubTotal(itemToAddCart, "increase");
+  removeEmptyCartMessage();
+
+  cartDiv.appendChild(itemToAddCart);
+};
 export const changeAddToCartToInCart = (menuItemNode) => {
   let addToCartBtn = menuItemNode.querySelector(".add");
   addToCartBtn.innerHTML = "";

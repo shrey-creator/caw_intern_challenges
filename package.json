@@ -1,0 +1,10 @@
+{
+  "husky":{
+    "hooks":{
+
+    }
+  },
+  "dependencies": {
+    "husky": "^8.0.1"
+  }
+}

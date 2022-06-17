@@ -67,7 +67,7 @@ export const pushToCart = (event) => {
 
   cartDiv.appendChild(itemToAddCart);
 };
-export const addClickListenerToAddBtn = () => {
+const addClickListenerToAddBtn = () => {
   addToCartBtn.forEach((addBtn) => {
     addBtn.addEventListener("click", pushToCart);
   });

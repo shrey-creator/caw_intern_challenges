@@ -161,4 +161,3 @@ const addPodcasttoDocument = () => {
 
 addPodcasttoDocument();
 
-export let allPodcast = document.querySelectorAll("input");

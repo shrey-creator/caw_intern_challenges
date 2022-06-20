@@ -1,20 +1,7 @@
 import { changeLastSelectedPodcast } from "./utilMethods.js";
-export const getPodcastListNode = (podcastName, podcastId) => {
-  let liNode = document.createElement("li");
-  let podcastAttribute = getPodcastAttribute(podcastId);
 
-  let labelNode = getPodcastLabelNode(podcastAttribute);
-  let inputNode = getPodcastInputNode(podcastAttribute);
-  let spanNode = getPodcastSpanNode(podcastName, podcastId);
-
-  labelNode.appendChild(inputNode);
-  labelNode.appendChild(spanNode);
-  liNode.appendChild(labelNode);
-
-  return liNode;
-};
 const getPodcastLabelNode = (podcastAttribute) => {
-  let labelNode = document.createElement("label");
+  const labelNode = document.createElement("label");
   labelNode.setAttribute("for", podcastAttribute);
 
   return labelNode;
@@ -34,6 +21,19 @@ const getPodcastSpanNode = (podcastName, podcastId) => {
   spanNode.textContent = `${podcastId} || ${podcastName}`;
   return spanNode;
 };
-const getPodcastAttribute = (podcastId) => {
-  return `episode-` + podcastId;
+const getPodcastAttribute = (podcastId) => "episode-" + podcastId;
+
+export const getPodcastListNode = (podcastName, podcastId) => {
+  const liNode = document.createElement("li");
+  const podcastAttribute = getPodcastAttribute(podcastId);
+
+  const labelNode = getPodcastLabelNode(podcastAttribute);
+  const inputNode = getPodcastInputNode(podcastAttribute);
+  const spanNode = getPodcastSpanNode(podcastName, podcastId);
+
+  labelNode.appendChild(inputNode);
+  labelNode.appendChild(spanNode);
+  liNode.appendChild(labelNode);
+
+  return liNode;
 };

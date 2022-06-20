@@ -1,4 +1,5 @@
 import { getPodcastListNode } from "./js/gettterMethod.js";
+
 const episodes = [
   {
     id: 1,
@@ -152,8 +153,8 @@ const episodes = [
 
 const addPodcasttoDocument = () => {
   episodes.forEach((podcast) => {
-    let podcastListNode = getPodcastListNode(podcast.name, podcast.id);
-    let episodeUlNode = document.querySelector(".episodes");
+    const podcastListNode = getPodcastListNode(podcast.name, podcast.id);
+    const episodeUlNode = document.querySelector(".episodes");
 
     episodeUlNode.appendChild(podcastListNode);
   });

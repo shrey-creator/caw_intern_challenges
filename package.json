@@ -1,8 +1,17 @@
 {
-  "husky": {
-    "hooks": {}
+  "scripts": {
+    "prepare": "husky install client/.husky"
   },
-  "dependencies": {
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx pretty-quick --staged ng lint ng test",
+      "pre-push": "ng build --aot true"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "husky": "^8.0.1"
   }
 }

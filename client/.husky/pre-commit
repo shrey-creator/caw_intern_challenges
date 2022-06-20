@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-lint-staged
+
+npx pretty-quick --staged && npx lint  && npx lint-staged

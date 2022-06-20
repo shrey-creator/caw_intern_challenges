@@ -1,103 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<title>Links website</title>
-<style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <title>Links website</title>
+    <style>
+      body {
+        background-image: url(https://www.w3schools.com/howto/img_link_tree_template1_bg.jpg); /* The image used for background*/
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-position: center; /* Center the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+      }
 
-body {
-    background-image: url(https://www.w3schools.com/howto/img_link_tree_template1_bg.jpg); /* The image used for background*/
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-position: center; /* Center the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-}
+      .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
 
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
+      .image-container {
+        text-align: center;
+        width: 100%;
+      }
 
-.image-container {
-  text-align: center;
-  width: 100%;
-}
+      .links-container {
+        display: flex;
+        flex-direction: column;
+        jusify-content: center;
+        align-items: center;
+      }
 
-.links-container {
-  display: flex;
-  flex-direction: column;
-  jusify-content: center;
-  align-items: center;
-}
+      .link {
+        min-width: 50% !important;
+      }
 
-.link {
-  min-width: 50% !important;
-}
+      @media (min-width: 1200px) .container {
+        max-width: 1140px;
+      }
+      @media (min-width: 992px) .container {
+        max-width: 960px;
+      }
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
 
-@media (min-width: 1200px) .container {
-  max-width: 1140px;
-}
-@media (min-width: 992px) .container {
-  max-width: 960px;
-}
-@media (min-width: 768px) {
-.container {
-    max-width: 720px;
-  }
+        .link {
+          width: 100%;
+        }
+      }
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
 
-.link {
-    width: 100%;
-  }
-}
-@media (min-width: 576px) {
-.container {
-    max-width: 540px;
-  }
-}
-
-.w3-purple, .w3-hover-purple:hover {
-color: #fff!important;
-background-color: rgba(156, 39, 176, 0.6) !important;
-}
-</style>
+      .w3-purple,
+      .w3-hover-purple:hover {
+        color: #fff !important;
+        background-color: rgba(156, 39, 176, 0.6) !important;
+      }
+    </style>
   </head>
-
 
   <body class="w3-white">
     <!-- Content container -->
     <div class="container">
-
       <!-- Image and name container. Change to your picture here. -->
-    <div class="image-container">
-     <div class="w3-text-white">
-     <p class="w3-text-white w3-large">Welcome to <span class="w3-tag w3-large w3-round w3-black w3-text-white"><strong>Shrey</strong></span> link site!</p>
-     <p class="w3-large"><strong>See what I am up to.</strong></p>
+      <div class="image-container">
+        <div class="w3-text-white">
+          <p class="w3-text-white w3-large">
+            Welcome to
+            <span class="w3-tag w3-large w3-round w3-black w3-text-white"
+              ><strong>Shrey</strong></span
+            >
+            link site!
+          </p>
+          <p class="w3-large"><strong>See what I am up to.</strong></p>
+        </div>
+
+        <!-- Links section 1. Replace the # inside of the "" with your links. -->
+        <div class="links-container">
+          <a
+            href="timer/index.html"
+            class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
+            target="_blank"
+            ><i class="fab fa-facebook"> </i>Challenge 1 Timer</a
+          >
+          <br />
+          <a
+            href="#"
+            class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
+            target="_blank"
+            >Challenge 2</a
+          >
+          <br />
+          <a
+            href="keyboard/index.html"
+            class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
+            target="_blank"
+            >Challenge 3</a
+          >
+          
+          <br />
+          <a
+            href="jiggle/index.html"
+            class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
+            target="_blank"
+            >Challenge 4(jiggle keyboard)</a
+          >
+          <br/>
+          <a
+            href="checkBox/"
+            class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
+            target="_blank"
+            >Challenge 5(checkBox)</a
+          >
+        </div>
       </div>
-
-    <!-- Links section 1. Replace the # inside of the "" with your links. -->
-    <div class="links-container">
-      <a href="timer/index.html" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank"><i class="fab fa-facebook"> </i>Challenge 1 Timer</a>
-      <br>
-      <a href="#" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank">Challenge 2</a>
-      <br>
-      <a href="keyboard/index.html" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank">Challenge 3</a>
-      <br>
-<<<<<<< HEAD
-      <a href="#" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank">Challenge4</a>
-      <br>
-      <a href="checkBox/" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank">Challenge 5(checkBox)</a>
-      
-=======
-      <a href="jiggle/index.html" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank">Challenge 4(jiggle keyboard)</a>
->>>>>>> 99e6eeed02c2d4aed859a8978d62e706ffbc76ab
     </div>
-  </div>
-</div>
-
-  
-  </body>  
+  </body>
 </html>

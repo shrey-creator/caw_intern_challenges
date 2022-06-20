@@ -18,7 +18,7 @@ const checkAllSelectedPodcast = (
 ) => {
   let lastLabelNode = lastSelectedPodcast;
   let currentLabelNode = currentSelectedPodcast;
-  
+
   let allPodcast = document.querySelectorAll("input");
   let start = Array.prototype.indexOf.call(allPodcast, lastLabelNode);
   let end = Array.prototype.indexOf.call(allPodcast, currentLabelNode);

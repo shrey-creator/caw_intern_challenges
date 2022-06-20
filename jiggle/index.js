@@ -4,7 +4,4 @@ const onKeyPress = (event) => {
   checkIfRightKeyPressed(pressedKey);
 };
 
-
-
-
 document.addEventListener("keydown", onKeyPress);

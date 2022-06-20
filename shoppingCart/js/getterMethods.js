@@ -54,6 +54,7 @@ export const getCartItemDiv = (menuItemDetail) => {
   let contentDiv = getContentDiv(menuItemDetail);
   //qty wrapper div
   let qtyWrapperDiv = getQuatityWrapper(menuItemDetail);
+
   listNode.appendChild(plateDiv);
   listNode.appendChild(contentDiv);
   listNode.appendChild(qtyWrapperDiv);

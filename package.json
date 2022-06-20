@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "prepare": "husky install client/.husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged",
+      "pre-push": "ng build --aot true"
+    }
+  },
+  "lint-staged": {
+    "*.{html,js,css}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3"
+  }
+}

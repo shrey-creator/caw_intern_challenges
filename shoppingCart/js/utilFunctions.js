@@ -6,66 +6,65 @@ import {
   getMenuItemDetails,
   getMenuItemDiv,
   getCartItemDiv,
-} from "./getterMethods.js";
-
+} from './getterMethods.js';
 
 export const pushToCart = (event) => {
- 
-  let selectMenuItemNode = getMenuItemDiv(event);
-  let menuItemName = selectMenuItemNode.querySelector(".menu-item").textContent;
-  let selectMenuItemDetail = getMenuItemDetails(menuItemName);
-  let itemToAddCart = getCartItemDiv(selectMenuItemDetail);
-  let cartDiv = document.querySelectorAll(".cart-summary")[0];
+  const selectMenuItemNode = getMenuItemDiv(event);
+  const menuItemNode = selectMenuItemNode.querySelector('.menu-item');
+  const menuItemName = menuItemNode.textContent;
+  const selectMenuItemDetail = getMenuItemDetails(menuItemName);
+  const itemToAddCart = getCartItemDiv(selectMenuItemDetail);
+  const cartDiv = document.querySelectorAll('.cart-summary')[0];
 
   changeAddToCartToInCart(selectMenuItemNode);
-  changeCartSubTotal(itemToAddCart, "increase");
+  changeCartSubTotal(itemToAddCart, 'increase');
   removeEmptyCartMessage();
 
   cartDiv.appendChild(itemToAddCart);
 };
 export const changeAddToCartToInCart = (menuItemNode) => {
-  let addToCartBtn = menuItemNode.querySelector(".add");
-  addToCartBtn.innerHTML = "";
-  let checkImg = document.createElement("img");
-  checkImg.src = "images/check.svg";
+  const addToCartBtn = menuItemNode.querySelector('.add');
+  addToCartBtn.innerHTML = '';
+  const checkImg = document.createElement('img');
+  checkImg.src = 'images/check.svg';
   addToCartBtn.appendChild(checkImg);
-  addToCartBtn.classList.remove("add");
-  addToCartBtn.classList.add("in-cart");
-  addToCartBtn.appendChild(document.createTextNode("In Cart"));
-  addToCartBtn.removeEventListener("click", pushToCart);
+  addToCartBtn.classList.remove('add');
+  addToCartBtn.classList.add('in-cart');
+  addToCartBtn.appendChild(document.createTextNode('In Cart'));
+  addToCartBtn.removeEventListener('click', pushToCart);
 };
 export const changeCartItemTotal = (qtyInCart, cartItemDiv) => {
-  let cartItemPrice = getCartItemPrice(cartItemDiv);
-  let cartItemTotalNode = cartItemDiv.querySelector(".subtotal");
-  let cartItemTotal = (qtyInCart * cartItemPrice).toFixed(2);
-  cartItemTotalNode.textContent = "$ " + cartItemTotal;
+  const cartItemPrice = getCartItemPrice(cartItemDiv);
+  const cartItemTotalNode = cartItemDiv.querySelector('.subtotal');
+  const cartItemTotal = (qtyInCart * cartItemPrice).toFixed(2);
+  cartItemTotalNode.textContent = '$ ' + cartItemTotal;
 };
 export const changeCartSubTotal = (cartItemDiv, changePrice) => {
-  let cartItemPrice = getCartItemPrice(cartItemDiv);
+  const cartItemPrice = getCartItemPrice(cartItemDiv);
 
-  let totalsDiv = document.querySelector(".totals");
-  let subtotalNode = totalsDiv.querySelector(".subtotal");
+  const totalsDiv = document.querySelector('.totals');
+  const subtotalNode = totalsDiv.querySelector('.subtotal');
   let subtotal = parseFloat(subtotalNode.textContent.slice(1));
-  let taxNode = totalsDiv.querySelector(".tax");
-  let totalNode = totalsDiv.querySelectorAll(".total")[1];
-  if (changePrice == "increase") {
+  const taxNode = totalsDiv.querySelector('.tax');
+  const totalNode = totalsDiv.querySelectorAll('.total')[1];
+  if (changePrice == 'increase') {
     subtotal = subtotal + cartItemPrice;
   } else subtotal = subtotal - cartItemPrice;
   subtotal = subtotal.toFixed(2);
-  let tax = subtotal * 0.095;
-  let total = (parseFloat(subtotal) + tax).toFixed(2);
+  const tax = subtotal * 0.095;
+  const total = (parseFloat(subtotal) + tax).toFixed(2);
   if (total == 0) {
     addEmptyCartMessage();
   }
-  taxNode.textContent = "$" + tax.toFixed(2);
-  subtotalNode.textContent = "$" + subtotal;
-  totalNode.textContent = "$" + total;
+  taxNode.textContent = '$' + tax.toFixed(2);
+  subtotalNode.textContent = '$' + subtotal;
+  totalNode.textContent = '$' + total;
 };
 export const decreaseQtyInCart = (event) => {
-  let btnParentDiv = getBtnParentDiv(event);
-  let qtyInCartNode = btnParentDiv.querySelectorAll(".quantity");
-  let qtyInCart = parseInt(qtyInCartNode[0].textContent);
-  changeCartSubTotal(btnParentDiv, "decrease");
+  const btnParentDiv = getBtnParentDiv(event);
+  const qtyInCartNode = btnParentDiv.querySelectorAll('.quantity');
+  const qtyInCart = parseInt(qtyInCartNode[0].textContent);
+  changeCartSubTotal(btnParentDiv, 'decrease');
   if (qtyInCart === 1) {
     removeItemFromCart(btnParentDiv);
     return;
@@ -74,43 +73,43 @@ export const decreaseQtyInCart = (event) => {
   qtyInCartNode[0].textContent = qtyInCart - 1;
   qtyInCartNode[1].textContent = qtyInCart - 1;
 };
-function removeItemFromCart(btnParentDiv) {
-  let cart_summary = document.querySelector(".cart-summary");
-  cart_summary.removeChild(btnParentDiv);
+const removeItemFromCart = (btnParentDiv) => {
+  const cartSummary = document.querySelector('.cart-summary');
+  cartSummary.removeChild(btnParentDiv);
   addEventListenerToButton(btnParentDiv);
-}
-function addEventListenerToButton(btnParentDiv) {
-  let cartItemNameToRemove =
-    btnParentDiv.querySelector(".menu-item").textContent;
-  let menuItemDiv = document.querySelector(".menu");
-  let menuItemList = menuItemDiv.querySelectorAll(".content");
-  let menuItemToChangeNode = getMenuItemToChange(
-    menuItemList,
-    cartItemNameToRemove
+};
+const addEventListenerToButton = (btnParentDiv) => {
+  const cartItemNameToRemove =
+    btnParentDiv.querySelector('.menu-item').textContent;
+  const menuItemDiv = document.querySelector('.menu');
+  const menuItemList = menuItemDiv.querySelectorAll('.content');
+  const menuItemToChangeNode = getMenuItemToChange(
+      menuItemList,
+      cartItemNameToRemove,
   );
-  let addCartButton = getAddCartButton();
-  addCartButton.addEventListener("click", pushToCart);
-  let inCartBtn = menuItemToChangeNode.querySelector(".in-cart");
+  const addCartButton = getAddCartButton();
+  addCartButton.addEventListener('click', pushToCart);
+  const inCartBtn = menuItemToChangeNode.querySelector('.in-cart');
 
   menuItemToChangeNode.removeChild(inCartBtn);
   menuItemToChangeNode.appendChild(addCartButton);
-}
+};
 
 export const increaseQtyInCart = (event) => {
-  let btnParentDiv = getBtnParentDiv(event);
-  let qtyInCartNode = btnParentDiv.querySelectorAll(".quantity");
-  let qtyInCart = parseInt(qtyInCartNode[0].textContent);
+  const btnParentDiv = getBtnParentDiv(event);
+  const qtyInCartNode = btnParentDiv.querySelectorAll('.quantity');
+  const qtyInCart = parseInt(qtyInCartNode[0].textContent);
   changeCartItemTotal(qtyInCart + 1, btnParentDiv);
-  changeCartSubTotal(btnParentDiv, "increase");
+  changeCartSubTotal(btnParentDiv, 'increase');
   qtyInCartNode[0].textContent = qtyInCart + 1;
   qtyInCartNode[1].textContent = qtyInCart + 1;
 };
 
 export const removeEmptyCartMessage = () => {
-  let emptyCartNode = document.querySelector(".empty");
-  emptyCartNode.style.display = "none";
+  const emptyCartNode = document.querySelector('.empty');
+  emptyCartNode.style.display = 'none';
 };
 export const addEmptyCartMessage = () => {
-  let emptyCartNode = document.querySelector(".empty");
-  emptyCartNode.style.display = "block";
+  const emptyCartNode = document.querySelector('.empty');
+  emptyCartNode.style.display = 'block';
 };

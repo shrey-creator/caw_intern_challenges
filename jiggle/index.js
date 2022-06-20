@@ -1,10 +1,8 @@
-import { checkIfRightKeyPressed } from "./js/boolmethod.js";
+import {checkIfRightKeyPressed} from './js/boolmethod.js';
+
 const onKeyPress = (event) => {
-  let pressedKey = event.key.toUpperCase();
+  const pressedKey = event.key.toUpperCase();
   checkIfRightKeyPressed(pressedKey);
 };
 
-
-
-
-document.addEventListener("keydown", onKeyPress);
+document.addEventListener('keydown', onKeyPress);

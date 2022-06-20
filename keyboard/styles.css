@@ -1,5 +1,5 @@
 body {
-  background: #37B2C3;
+  background: #37b2c3;
 }
 
 .piano {
@@ -11,7 +11,7 @@ body {
 }
 
 .white-keys {
- fill: white;
+  fill: white;
 }
 
 .white-keys:hover {
@@ -23,6 +23,5 @@ body {
 }
 
 .black-keys:hover {
-  fill: #f40082;  
+  fill: #f40082;
 }
-

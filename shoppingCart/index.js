@@ -1,13 +1,10 @@
-import {
- pushToCart
-} from "./js/utilFunctions.js";
+import {pushToCart} from './js/utilFunctions.js';
 
-
-let addToCartBtn = document.querySelectorAll(".add");
+const addToCartBtn = document.querySelectorAll('.add');
 
 const addClickListenerToAddBtn = () => {
   addToCartBtn.forEach((addBtn) => {
-    addBtn.addEventListener("click", pushToCart);
+    addBtn.addEventListener('click', pushToCart);
   });
 };
 

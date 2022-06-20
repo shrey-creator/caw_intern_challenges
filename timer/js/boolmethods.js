@@ -1,22 +1,22 @@
-import { getMinuteNode, getSeconds, getMinutes } from "./getterMethod.js";
-import { timerButton } from "../index.js";
+import {getMinuteNode, getSeconds, getMinutes} from './getterMethod.js';
+import {timerButton} from '../index.js';
 
 const isEditingInProgress = () => {
-  let minuteNode = getMinuteNode();
+  const minuteNode = getMinuteNode();
   if (minuteNode.disabled) return false;
   return true;
 };
 const isTimeUp = () => {
-  let minutesLeft = getMinutes();
-  let secondsLeft = getSeconds();
+  const minutesLeft = getMinutes();
+  const secondsLeft = getSeconds();
   if (minutesLeft == 0 && secondsLeft == 0) {
     return true;
   }
   return false;
 };
 const isButtonTextStart = () => {
-  let timerButtonText = timerButton.innerHTML;
-  return timerButtonText == "start" ? true : false;
+  const timerButtonText = timerButton.innerHTML;
+  return timerButtonText == 'start' ? true : false;
 };
 const areInputValid = (minutes, seconds, minuteNode) => {
   if (
@@ -51,7 +51,7 @@ const isInputNaN = (minutes, seconds) => {
   return false;
 };
 const isInputDecimal = (minutes, seconds) => {
-  if( minutes.indexOf(".") === -1 && seconds.indexOf(".") === -1) {
+  if (minutes.indexOf('.') === -1 && seconds.indexOf('.') === -1) {
     return true;
   }
   return false;

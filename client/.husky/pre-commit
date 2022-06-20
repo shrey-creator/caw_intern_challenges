@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx pretty-quick --staged ng lint ng test
-npx lint-staged
+npx pretty-quick --staged && npx lint  && npx lint-staged

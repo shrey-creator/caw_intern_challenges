@@ -8,9 +8,7 @@ import {
   getCartItemDiv,
 } from "./getterMethods.js";
 
-
 export const pushToCart = (event) => {
- 
   let selectMenuItemNode = getMenuItemDiv(event);
   let menuItemName = selectMenuItemNode.querySelector(".menu-item").textContent;
   let selectMenuItemDetail = getMenuItemDetails(menuItemName);

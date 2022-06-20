@@ -1,7 +1,4 @@
-import {
- pushToCart
-} from "./js/utilFunctions.js";
-
+import { pushToCart } from "./js/utilFunctions.js";
 
 let addToCartBtn = document.querySelectorAll(".add");
 

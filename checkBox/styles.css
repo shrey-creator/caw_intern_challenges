@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 
 body {
   background: #f3f3f3;
@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   justify-content: center;
 }
 li {
@@ -45,7 +45,7 @@ h1 {
   padding: 0;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   display: none;
 }
 
@@ -64,15 +64,15 @@ label {
   cursor: pointer;
 }
 
-input[type="checkbox"] + span {
-  background: url("./images/checkbox--unchecked.svg") left top no-repeat;
+input[type='checkbox'] + span {
+  background: url('./images/checkbox--unchecked.svg') left top no-repeat;
   background-size: 20px 20px;
   min-height: 20px;
   padding-left: 30px;
 }
 
-input[type="checkbox"]:checked + span {
-  background-image: url("images/checkbox--checked.svg");
+input[type='checkbox']:checked + span {
+  background-image: url('images/checkbox--checked.svg');
   text-decoration: line-through;
   color: #c9cdd1;
 }
@@ -82,7 +82,7 @@ button {
   border: none;
   border-radius: 24px;
   text-transform: uppercase;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   padding: 8px 25px;
   color: white;

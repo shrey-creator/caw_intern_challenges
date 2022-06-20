@@ -3,9 +3,9 @@ const playAudio = (index) => () => {
   audio.play();
 };
 const addAudioToKeyboard = () => {
-  const keyboardBtns = document.querySelectorAll("a");
+  const keyboardBtns = document.querySelectorAll('a');
   keyboardBtns.forEach((btn, index) => {
-    btn.addEventListener("click", playAudio(index));
+    btn.addEventListener('click', playAudio(index));
   });
 };
 addAudioToKeyboard();

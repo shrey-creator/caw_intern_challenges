@@ -1,28 +1,39 @@
-import { isTimerOn } from "../index.js";
-import { getMinuteNode, getSecondsNode } from "./getterMethod.js";
+import {isTimerOn, startStopTimer} from '../index.js';
+import {getMinuteNode, getSecondsNode} from './getterMethod.js';
 import {
   appendZeroBeforeMin,
   appendZeroBeforeSec,
-  showErrorMessage,
   clearErrorMessage,
-} from "./utilMethods.js";
-import { areInputValid } from "./boolmethods.js";
-
-let settingButton = document.querySelector(".settings");
-const editTimerFields = () => {
-  let minuteNode = getMinuteNode();
-  let secondNode = getSecondsNode();
+  changeCircleToGreen,
+} from './utilMethods.js';
+import {areInputValid} from './boolmethods.js';
+const minuteNode = getMinuteNode();
+const secondNode = getSecondsNode();
+const settingButton = document.querySelector('.settings');
+export const editTimerFields = () => {
+  minuteNode.disabled = minuteNode.disabled ? false : true;
+  secondNode.disabled = secondNode.disabled === true ? false : true;
   if (isTimerOn) {
-    showErrorMessage("Stop the timer to edit fields");
-  } else if (areInputValid(minuteNode.value, secondNode.value, minuteNode)) {
-    clearErrorMessage();
-    minuteNode.disabled = minuteNode.disabled ? false : true;
-    secondNode.disabled = secondNode.disabled === true ? false : true;
-    minuteNode.value = appendZeroBeforeMin(minuteNode.value);
-    secondNode.value = appendZeroBeforeSec(secondNode.value);
-  } else {
-    showErrorMessage("Input Fields are not valid");
+    startStopTimer();
   }
 };
+export const checkInputField = () => {
+  if (areInputValid(minuteNode.value, secondNode.value, minuteNode)) {
+    saveTimerField(minuteNode.value, secondNode.value);
+  } else {
+    alert('Input Fields are not valid');
+    saveTimerField(15, 0);
+    return 0;
+  }
+  return 1;
+};
+export const saveTimerField = (minutesLeft, secondsLeft) => {
+  clearErrorMessage();
+  changeCircleToGreen();
+  minuteNode.disabled = true;
+  secondNode.disabled = true;
+  minuteNode.value = appendZeroBeforeMin(minutesLeft);
+  secondNode.value = appendZeroBeforeSec(secondsLeft);
+};
 
-settingButton.addEventListener("click", editTimerFields);
+settingButton.addEventListener('click', editTimerFields);

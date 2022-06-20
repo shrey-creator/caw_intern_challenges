@@ -1,11 +1,11 @@
 const checkAllSelectedPodcast = (
-  lastSelectedPodcast,
-  currentSelectedPodcast
+    lastSelectedPodcast,
+    currentSelectedPodcast,
 ) => {
   const lastLabelNode = lastSelectedPodcast;
   const currentLabelNode = currentSelectedPodcast;
 
-  const allPodcast = document.querySelectorAll("input");
+  const allPodcast = document.querySelectorAll('input');
   let start = Array.prototype.indexOf.call(allPodcast, lastLabelNode);
   let end = Array.prototype.indexOf.call(allPodcast, currentLabelNode);
   if (start > end) {

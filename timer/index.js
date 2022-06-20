@@ -1,14 +1,14 @@
-import { isEditingInProgress, isTimeUp } from "./js/boolmethods.js";
+import {isEditingInProgress, isTimeUp} from './js/boolmethods.js';
 import {
   decreaseTimerFields,
   toogleTimerButtonText,
   changeCircleToGreen,
-  showErrorMessage,
   clearErrorMessage,
-} from "./js/utilMethods.js";
-import { getSeconds, getMinutes } from "./js/getterMethod.js";
+} from './js/utilMethods.js';
+import {checkInputField, saveTimerField} from './js/editFunctionality.js';
+import {getSeconds, getMinutes} from './js/getterMethod.js';
 
-let timerButton = document.querySelector(".start");
+const timerButton = document.querySelector('.start');
 let isTimerOn = false;
 let timerId = false;
 const startStopTimer = () => {
@@ -18,30 +18,33 @@ const startStopTimer = () => {
     clearInterval(timerId);
     toogleTimerButtonText();
   } else {
-    if (isEditingInProgress()) {
-      showErrorMessage("Please complete edit and then start the timer");
-    } else if (isTimeUp()) {
-      showErrorMessage("Time is up");
-    } else if (!isTimeUp()) {
-      isTimerOn = true;
-      timerId = startTimer(); //TO ask:if we put var, timer does not stop
+    if (isTimeUp()) {
+      alert('Time is up');
+      saveTimerField(15, 0);
+    } else if (isEditingInProgress()) {
+      if (checkInputField()) {
+        timerId = startTimer();
+      }
+    } else {
+      timerId = startTimer();
     }
   }
 };
 
 const startTimer = () => {
+  isTimerOn = true;
   toogleTimerButtonText();
   changeCircleToGreen();
   clearErrorMessage();
-  let minutesLeft = getMinutes();
-  let secondsLeft = getSeconds();
-  var timerId = setInterval(
-    decreaseTimerFields(minutesLeft, secondsLeft),
-    1000
+  const minutesLeft = getMinutes();
+  const secondsLeft = getSeconds();
+  const timerId = setInterval(
+      decreaseTimerFields(minutesLeft, secondsLeft),
+      1000,
   );
   return timerId;
 };
 
-timerButton.addEventListener("click", startStopTimer);
+timerButton.addEventListener('click', startStopTimer);
 
-export { timerButton, timerId, isTimerOn, startStopTimer };
+export {timerButton, timerId, isTimerOn, startStopTimer};

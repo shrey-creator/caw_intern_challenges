@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 @font-face {
-  font-family: "bebas";
-  src: url("./fonts/bebasneue-book-webfont.woff") format("woff"),
-    url("./fonts/bebasneue-book-webfont.woff2") format("woff2");
+  font-family: 'bebas';
+  src: url('./fonts/bebasneue-book-webfont.woff') format('woff'),
+    url('./fonts/bebasneue-book-webfont.woff2') format('woff2');
 }
 
 body {
@@ -64,19 +64,19 @@ body {
 /* actual time */
 .time {
   display: flex;
-  font-family: "bebas";
+  font-family: 'bebas';
   font-size: 196px;
   margin: 30px auto;
   position: relative;
   top: 30px;
 }
 
-input[type="text"] {
+input[type='text'] {
   border: 0;
   border-bottom: 1px dashed white;
   background: none;
   color: white;
-  font-family: "bebas";
+  font-family: 'bebas';
   font-size: 196px;
   height: 170px;
   width: 150px;
@@ -84,13 +84,13 @@ input[type="text"] {
   outline: none;
 }
 
-input[type="text"]:disabled {
+input[type='text']:disabled {
   border-bottom: none;
 }
 
 .start {
   cursor: pointer;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   letter-spacing: 10px;
   line-height: 20px;

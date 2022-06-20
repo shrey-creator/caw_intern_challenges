@@ -1,30 +1,30 @@
-import { changeLastSelectedPodcast } from "./utilMethods.js";
+import {changeLastSelectedPodcast} from './utilMethods.js';
 
 const getPodcastLabelNode = (podcastAttribute) => {
-  const labelNode = document.createElement("label");
-  labelNode.setAttribute("for", podcastAttribute);
+  const labelNode = document.createElement('label');
+  labelNode.setAttribute('for', podcastAttribute);
 
   return labelNode;
 };
 const getPodcastInputNode = (podcastAttribute) => {
-  let inputNode = document.createElement("input");
-  inputNode.setAttribute("type", "checkbox");
-  inputNode.setAttribute("name", podcastAttribute);
-  inputNode.setAttribute("id", podcastAttribute);
+  const inputNode = document.createElement('input');
+  inputNode.setAttribute('type', 'checkbox');
+  inputNode.setAttribute('name', podcastAttribute);
+  inputNode.setAttribute('id', podcastAttribute);
 
-  inputNode.addEventListener("click", changeLastSelectedPodcast);
+  inputNode.addEventListener('click', changeLastSelectedPodcast);
 
   return inputNode;
 };
 const getPodcastSpanNode = (podcastName, podcastId) => {
-  let spanNode = document.createElement("span");
+  const spanNode = document.createElement('span');
   spanNode.textContent = `${podcastId} || ${podcastName}`;
   return spanNode;
 };
-const getPodcastAttribute = (podcastId) => "episode-" + podcastId;
+const getPodcastAttribute = (podcastId) => 'episode-' + podcastId;
 
 export const getPodcastListNode = (podcastName, podcastId) => {
-  const liNode = document.createElement("li");
+  const liNode = document.createElement('li');
   const podcastAttribute = getPodcastAttribute(podcastId);
 
   const labelNode = getPodcastLabelNode(podcastAttribute);

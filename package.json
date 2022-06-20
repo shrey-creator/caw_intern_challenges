@@ -4,19 +4,21 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx pretty-quick --staged && npx lint  && npx lint-staged",
+      "pre-commit": "npx lint-staged",
       "pre-push": "ng build --aot true"
     }
   },
   "lint-staged": {
-    "*.{js,css,html}": [
-      "npm run prettier",
-      "npm run lint"
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
     ]
   },
   "devDependencies": {
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.26.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.2",

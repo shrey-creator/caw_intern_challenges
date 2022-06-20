@@ -1,27 +1,27 @@
 const getCircleNode = () => {
-  let circleNode = document.querySelector(".ring");
+  const circleNode = document.querySelector('.ring');
   return circleNode;
 };
 const getMinuteNode = () => {
-  let minutesDivNode = document.querySelector(".minutes");
-  let minuteNode = minutesDivNode.children[0];
+  const minutesDivNode = document.querySelector('.minutes');
+  const minuteNode = minutesDivNode.children[0];
   return minuteNode;
 };
 const getSecondsNode = () => {
-  let secondsDivNode = document.querySelector(".seconds");
-  let secondNode = secondsDivNode.children[0];
+  const secondsDivNode = document.querySelector('.seconds');
+  const secondNode = secondsDivNode.children[0];
   return secondNode;
 };
 const getErrorNode = () => {
-  let errorNode = document.querySelector("#error");
+  const errorNode = document.querySelector('#error');
   return errorNode;
 };
 const getMinutes = () => {
-  let minuteNode = getMinuteNode();
+  const minuteNode = getMinuteNode();
   return minuteNode.value;
 };
 const getSeconds = () => {
-  let secondNode = getSecondsNode();
+  const secondNode = getSecondsNode();
   return secondNode.value;
 };
 

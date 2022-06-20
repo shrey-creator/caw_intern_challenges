@@ -1,14 +1,14 @@
-import { isButtonTextStart } from "./boolmethods.js";
+import {isButtonTextStart} from './boolmethods.js';
 import {
   getCircleNode,
   getMinuteNode,
   getErrorNode,
   getSecondsNode,
-} from "./getterMethod.js";
-import { timerButton, startStopTimer } from "../index.js";
+} from './getterMethod.js';
+import {timerButton, startStopTimer} from '../index.js';
 
 const decreaseTimerFields = (minutesLeft, secondsLeft) => {
-  return function () {
+  return function() {
     if (secondsLeft == 0) {
       minutesLeft = --minutesLeft;
       secondsLeft = 59;
@@ -20,8 +20,8 @@ const decreaseTimerFields = (minutesLeft, secondsLeft) => {
   };
 };
 const setTimerFields = (minutesLeft, secondsLeft) => {
-  let minuteNode = getMinuteNode();
-  let secondNode = getSecondsNode();
+  const minuteNode = getMinuteNode();
+  const secondNode = getSecondsNode();
 
   minuteNode.value = appendZeroBeforeMin(minutesLeft);
   secondNode.value = appendZeroBeforeSec(secondsLeft);
@@ -33,36 +33,36 @@ const setTimerFields = (minutesLeft, secondsLeft) => {
 };
 const appendZeroBeforeMin = (minutesLeft) => {
   minutesLeft = parseInt(minutesLeft);
-  if (minutesLeft <= 9) minutesLeft = "0" + minutesLeft;
+  if (minutesLeft <= 9) minutesLeft = '0' + minutesLeft;
   return minutesLeft;
 };
 const appendZeroBeforeSec = (secondsLeft) => {
   secondsLeft = parseInt(secondsLeft);
-  if (secondsLeft <= 9) secondsLeft = "0" + secondsLeft;
+  if (secondsLeft <= 9) secondsLeft = '0' + secondsLeft;
   return secondsLeft;
 };
 const toogleTimerButtonText = () => {
-  timerButton.innerHTML = isButtonTextStart() ? "stop" : "start";
+  timerButton.innerHTML = isButtonTextStart() ? 'stop' : 'start';
 };
 
 const changeCircleToGreen = () => {
-  let circleNode = getCircleNode();
-  circleNode.style.stroke = "#09A65A";
+  const circleNode = getCircleNode();
+  circleNode.style.stroke = '#09A65A';
 };
 const changeCircleToRed = (callback) => {
-  let circleNode = getCircleNode();
-  circleNode.style.stroke = "red";
-  setTimeout(() => alert("Time is up"), 0);
+  const circleNode = getCircleNode();
+  circleNode.style.stroke = 'red';
+  setTimeout(() => alert('Time is up'), 0);
 };
 
 const showErrorMessage = (errorMessage) => {
-  let errorNode = getErrorNode();
+  const errorNode = getErrorNode();
   errorNode.innerHTML = errorMessage;
-  errorNode.style.display = "block";
+  errorNode.style.display = 'block';
 };
 const clearErrorMessage = () => {
-  let errorNode = getErrorNode();
-  errorNode.style.display = "none";
+  const errorNode = getErrorNode();
+  errorNode.style.display = 'none';
 };
 
 export {

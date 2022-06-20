@@ -1,59 +1,59 @@
-import { decreaseQtyInCart, increaseQtyInCart } from "./utilFunctions.js";
+import {decreaseQtyInCart, increaseQtyInCart} from './utilFunctions.js';
 
 const menuItems = [
   {
-    name: "French Fries with Ketchup",
+    name: 'French Fries with Ketchup',
     price: 223,
-    image: "plate__french-fries.png",
-    alt: "French Fries",
+    image: 'plate__french-fries.png',
+    alt: 'French Fries',
     count: 0,
   },
   {
-    name: "Salmon and Vegetables",
+    name: 'Salmon and Vegetables',
     price: 512,
-    image: "plate__salmon-vegetables.png",
-    alt: "Salmon and Vegetables",
+    image: 'plate__salmon-vegetables.png',
+    alt: 'Salmon and Vegetables',
     count: 0,
   },
   {
-    name: "Spaghetti with Meat Sauce",
+    name: 'Spaghetti with Meat Sauce',
     price: 782,
-    image: "plate__spaghetti-meat-sauce.png",
-    alt: "Spaghetti with Meat Sauce",
+    image: 'plate__spaghetti-meat-sauce.png',
+    alt: 'Spaghetti with Meat Sauce',
     count: 0,
   },
   {
-    name: "Bacon, Eggs, and Toast",
+    name: 'Bacon, Eggs, and Toast',
     price: 599,
-    image: "plate__bacon-eggs.png",
-    alt: "Bacon, Eggs, and Toast",
+    image: 'plate__bacon-eggs.png',
+    alt: 'Bacon, Eggs, and Toast',
     count: 0,
   },
   {
-    name: "Chicken Salad with Parmesan",
+    name: 'Chicken Salad with Parmesan',
     price: 698,
-    image: "plate__chicken-salad.png",
-    alt: "Chicken Salad with Parmesan",
+    image: 'plate__chicken-salad.png',
+    alt: 'Chicken Salad with Parmesan',
     count: 0,
   },
   {
-    name: "Fish Sticks and Fries",
+    name: 'Fish Sticks and Fries',
     price: 634,
-    image: "plate__fish-sticks-fries.png",
-    alt: "Fish Sticks and Fries",
+    image: 'plate__fish-sticks-fries.png',
+    alt: 'Fish Sticks and Fries',
     count: 0,
   },
 ];
 export const getCartItemDiv = (menuItemDetail) => {
-  let listNode = document.createElement("li");
+  const listNode = document.createElement('li');
 
-  //get plate div
-  let plateDiv = getPlateDiv(menuItemDetail);
+  // get plate div
+  const plateDiv = getPlateDiv(menuItemDetail);
 
-  //content div
-  let contentDiv = getContentDiv(menuItemDetail);
-  //qty wrapper div
-  let qtyWrapperDiv = getQuatityWrapper(menuItemDetail);
+  // content div
+  const contentDiv = getContentDiv(menuItemDetail);
+  // qty wrapper div
+  const qtyWrapperDiv = getQuatityWrapper(menuItemDetail);
 
   listNode.appendChild(plateDiv);
   listNode.appendChild(contentDiv);
@@ -61,7 +61,7 @@ export const getCartItemDiv = (menuItemDetail) => {
   return listNode;
 };
 export const getMenuItemDiv = (event) => {
-  let menuItem = event.target.parentNode.parentNode;
+  const menuItem = event.target.parentNode.parentNode;
   return menuItem;
 };
 export const getMenuItemDetails = (menuItemName) => {
@@ -75,17 +75,17 @@ export const getMenuItemDetails = (menuItemName) => {
 };
 
 export const getPlateDiv = (menuItemDetail) => {
-  let plateDiv = document.createElement("div");
-  plateDiv.classList.add("plate");
+  const plateDiv = document.createElement('div');
+  plateDiv.classList.add('plate');
 
-  let dishImage = document.createElement("img");
-  dishImage.src = "images/" + menuItemDetail.image;
+  const dishImage = document.createElement('img');
+  dishImage.src = 'images/' + menuItemDetail.image;
 
-  let qtyPlateDiv = document.createElement("div");
-  qtyPlateDiv.classList.add("quantity");
+  const qtyPlateDiv = document.createElement('div');
+  qtyPlateDiv.classList.add('quantity');
 
   qtyPlateDiv.appendChild(
-    document.createTextNode(`${menuItemDetail.count + 1}`)
+      document.createTextNode(`${menuItemDetail.count + 1}`),
   );
 
   plateDiv.appendChild(dishImage);
@@ -94,17 +94,17 @@ export const getPlateDiv = (menuItemDetail) => {
   return plateDiv;
 };
 export const getContentDiv = (menuItemDetail) => {
-  let contentDivNode = document.createElement("div");
-  contentDivNode.classList.add("content");
+  const contentDivNode = document.createElement('div');
+  contentDivNode.classList.add('content');
 
-  let menuItemNode = document.createElement("p");
-  menuItemNode.classList.add("menu-item");
+  const menuItemNode = document.createElement('p');
+  menuItemNode.classList.add('menu-item');
   menuItemNode.appendChild(document.createTextNode(`${menuItemDetail.name}`));
 
-  let priceNode = document.createElement("p");
-  priceNode.classList.add("price");
+  const priceNode = document.createElement('p');
+  priceNode.classList.add('price');
   priceNode.appendChild(
-    document.createTextNode("$" + `${menuItemDetail.price / 100}`)
+      document.createTextNode('$' + `${menuItemDetail.price / 100}`),
   );
 
   contentDivNode.appendChild(menuItemNode);
@@ -113,40 +113,40 @@ export const getContentDiv = (menuItemDetail) => {
   return contentDivNode;
 };
 export const getDecreaseButton = () => {
-  let decreaseBtn = document.createElement("button");
-  decreaseBtn.classList.add("decrease");
-  let decreaseImage = document.createElement("img");
-  decreaseImage.src = "images/chevron.svg";
+  const decreaseBtn = document.createElement('button');
+  decreaseBtn.classList.add('decrease');
+  const decreaseImage = document.createElement('img');
+  decreaseImage.src = 'images/chevron.svg';
   decreaseBtn.appendChild(decreaseImage);
   return decreaseBtn;
 };
 export const getIncreseButton = () => {
-  let increaseBtn = document.createElement("button");
-  increaseBtn.classList.add("increase");
-  let increaseImage = document.createElement("img");
-  increaseImage.src = "images/chevron.svg";
+  const increaseBtn = document.createElement('button');
+  increaseBtn.classList.add('increase');
+  const increaseImage = document.createElement('img');
+  increaseImage.src = 'images/chevron.svg';
   increaseBtn.appendChild(increaseImage);
   return increaseBtn;
 };
 export const getQuatityWrapper = (menuItemDetail) => {
-  let qtyWrapperDiv = document.createElement("div");
-  qtyWrapperDiv.classList.add("quantity__wrapper");
+  const qtyWrapperDiv = document.createElement('div');
+  qtyWrapperDiv.classList.add('quantity__wrapper');
 
-  let decreaseBtn = getDecreaseButton();
+  const decreaseBtn = getDecreaseButton();
   decreaseBtn.onclick = decreaseQtyInCart;
 
-  let qtyDiv = document.createElement("div");
-  qtyDiv.classList.add("quantity");
+  const qtyDiv = document.createElement('div');
+  qtyDiv.classList.add('quantity');
   qtyDiv.appendChild(document.createTextNode(`${menuItemDetail.count + 1}`));
 
-  let increaseBtn = getIncreseButton();
+  const increaseBtn = getIncreseButton();
   increaseBtn.onclick = increaseQtyInCart;
 
-  let subtotalDiv = document.createElement("div");
-  subtotalDiv.classList.add("subtotal");
+  const subtotalDiv = document.createElement('div');
+  subtotalDiv.classList.add('subtotal');
 
   subtotalDiv.appendChild(
-    document.createTextNode("$ " + `${menuItemDetail.price / 100}`)
+      document.createTextNode('$ ' + `${menuItemDetail.price / 100}`),
   );
 
   qtyWrapperDiv.appendChild(decreaseBtn);
@@ -157,28 +157,28 @@ export const getQuatityWrapper = (menuItemDetail) => {
 };
 export const getBtnParentDiv = (event) => {
   let btnParentDiv = event.target.parentNode.parentNode;
-  if (btnParentDiv.nodeName === "DIV") btnParentDiv = btnParentDiv.parentNode;
+  if (btnParentDiv.nodeName === 'DIV') btnParentDiv = btnParentDiv.parentNode;
 
   return btnParentDiv;
 };
 
 export const getCartItemPrice = (cartItemDiv) => {
-  let cartItemPriceNode = cartItemDiv.querySelector(".price");
-  let cartItemPrice = parseFloat(cartItemPriceNode.textContent.slice(1));
+  const cartItemPriceNode = cartItemDiv.querySelector('.price');
+  const cartItemPrice = parseFloat(cartItemPriceNode.textContent.slice(1));
   return cartItemPrice;
 };
 
 export const getAddCartButton = () => {
-  let addToCart = document.createElement("button");
-  addToCart.classList.add("add");
-  addToCart.appendChild(document.createTextNode("Add To Cart"));
+  const addToCart = document.createElement('button');
+  addToCart.classList.add('add');
+  addToCart.appendChild(document.createTextNode('Add To Cart'));
 
   return addToCart;
 };
 export const getMenuItemToChange = (menuItemListNode, cartItemToRemove) => {
   let targetMenuItemNode = false;
   menuItemListNode.forEach((menuItemNode) => {
-    let menuItemName = menuItemNode.querySelector(".menu-item").textContent;
+    const menuItemName = menuItemNode.querySelector('.menu-item').textContent;
     if (menuItemName === cartItemToRemove) {
       targetMenuItemNode = menuItemNode;
     }

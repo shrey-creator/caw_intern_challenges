@@ -92,17 +92,17 @@
           >
           <br />
           <a
-            href="shoppingCart/index.html"
+            href="#"
             class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
             target="_blank"
-            >Challenge 2 Shopping Cart)</a
+            >Challenge 2</a
           >
           <br />
           <a
             href="keyboard/index.html"
             class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
             target="_blank"
-            >Challenge 3 piano</a
+            >Challenge 3</a
           >
           
           <br />
@@ -114,13 +114,15 @@
           >
           <br/>
           <a
-            href="checkBox/index.html"
+            href="checkBox/"
             class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link"
             target="_blank"
             >Challenge 5(checkBox)</a
           >
         </div>
       </div>
+<<<<<<< HEAD
+=======
 
     <!-- Links section 1. Replace the # inside of the "" with your links. -->
     <div class="links-container">
@@ -131,5 +133,7 @@
       <a href="./keyboard/index.html" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank">Challenge 3(Keyboard)</a>
       <br>
       <a href="jiggle/index.html" class="w3-button w3-hover-pink w3-large w3-round w3-purple w3-border link" target="_blank">Challenge 4(jiggle keyboard)</a>
+>>>>>>> c6ab6dc790d3f0e4fb4fda75fc05cf856c245c64
     </div>
+  </body>
 </html>

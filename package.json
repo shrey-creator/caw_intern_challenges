@@ -9,8 +9,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,css,html}": [
-      "npm run prettier:check"
+    "*.{js,css,html}": [
+      "npm run prettier",
+      "npm run lint",
+      "git add"
     ]
   },
   "devDependencies": {

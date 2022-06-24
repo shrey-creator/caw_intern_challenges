@@ -21,6 +21,7 @@ const getPodcastSpanNode = (podcastName, podcastId) => {
   spanNode.textContent = `${podcastId} || ${podcastName}`;
   return spanNode;
 };
+
 const getPodcastAttribute = (podcastId) => 'episode-' + podcastId;
 
 export const getPodcastListNode = (podcastName, podcastId) => {

@@ -8,7 +8,7 @@ import {
 import {timerButton, startStopTimer} from '../index.js';
 
 const decreaseTimerFields = (minutesLeft, secondsLeft) => {
-  return function() {
+  return () => {
     if (secondsLeft == 0) {
       minutesLeft = --minutesLeft;
       secondsLeft = 59;

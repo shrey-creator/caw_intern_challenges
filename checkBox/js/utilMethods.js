@@ -1,6 +1,6 @@
 const checkAllSelectedPodcast = (
-    lastSelectedPodcast,
-    currentSelectedPodcast,
+  lastSelectedPodcast,
+  currentSelectedPodcast,
 ) => {
   const lastLabelNode = lastSelectedPodcast;
   const currentLabelNode = currentSelectedPodcast;

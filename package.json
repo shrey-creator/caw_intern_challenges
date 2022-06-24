@@ -9,7 +9,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.{html,js}": [
       "npx prettier --write",
       "npx eslint "
     ],

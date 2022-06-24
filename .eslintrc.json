@@ -12,6 +12,7 @@
       "experimentalObjectRestSpread": true
     }
   },
+  "plugins": ["html"],
   "rules": {
     "linebreak-style": 0,
     "indent": ["error", 2],

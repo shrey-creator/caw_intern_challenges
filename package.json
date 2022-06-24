@@ -13,7 +13,9 @@
       "npx prettier --write",
       "npx eslint "
     ],
-    "*.css":["npx stylelint --fix"]
+    "*.css": [
+      "npx stylelint --fix"
+    ]
   },
   "devDependencies": {
     "eslint": "^8.18.0",

@@ -84,8 +84,8 @@ const addEventListenerToButton = (btnParentDiv) => {
   const menuItemDiv = document.querySelector('.menu');
   const menuItemList = menuItemDiv.querySelectorAll('.content');
   const menuItemToChangeNode = getMenuItemToChange(
-      menuItemList,
-      cartItemNameToRemove,
+    menuItemList,
+    cartItemNameToRemove,
   );
   const addCartButton = getAddCartButton();
   addCartButton.addEventListener('click', pushToCart);

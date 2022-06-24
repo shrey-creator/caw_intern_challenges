@@ -85,7 +85,7 @@ export const getPlateDiv = (menuItemDetail) => {
   qtyPlateDiv.classList.add('quantity');
 
   qtyPlateDiv.appendChild(
-      document.createTextNode(`${menuItemDetail.count + 1}`),
+    document.createTextNode(`${menuItemDetail.count + 1}`),
   );
 
   plateDiv.appendChild(dishImage);
@@ -104,7 +104,7 @@ export const getContentDiv = (menuItemDetail) => {
   const priceNode = document.createElement('p');
   priceNode.classList.add('price');
   priceNode.appendChild(
-      document.createTextNode('$' + `${menuItemDetail.price / 100}`),
+    document.createTextNode('$' + `${menuItemDetail.price / 100}`),
   );
 
   contentDivNode.appendChild(menuItemNode);
@@ -146,7 +146,7 @@ export const getQuatityWrapper = (menuItemDetail) => {
   subtotalDiv.classList.add('subtotal');
 
   subtotalDiv.appendChild(
-      document.createTextNode('$ ' + `${menuItemDetail.price / 100}`),
+    document.createTextNode('$ ' + `${menuItemDetail.price / 100}`),
   );
 
   qtyWrapperDiv.appendChild(decreaseBtn);

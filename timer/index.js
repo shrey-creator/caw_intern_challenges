@@ -39,12 +39,13 @@ const startTimer = () => {
   const minutesLeft = getMinutes();
   const secondsLeft = getSeconds();
   const timerId = setInterval(
-      decreaseTimerFields(minutesLeft, secondsLeft),
-      1000,
+    decreaseTimerFields(minutesLeft, secondsLeft),
+    1000,
   );
   return timerId;
 };
 
 timerButton.addEventListener('click', startStopTimer);
+// console.log('hi');
 
 export {timerButton, timerId, isTimerOn, startStopTimer};

@@ -4,7 +4,7 @@ body {
   background: url('images/bg__left.svg') left 10% no-repeat,
     url('images/bg__top-right.svg') right top no-repeat,
     #eff0f6 url('images/bg__btm-right.svg') right bottom no-repeat;
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100%;
@@ -53,23 +53,23 @@ ul.menu li {
   margin-bottom: 45px;
 }
 
-ul.menu li:nth-child(4n + 1):before {
+ul.menu li:nth-child(4n + 1)::before {
   --background: #e1f1fe;
 }
 
-ul.menu li:nth-child(4n + 2):before {
+ul.menu li:nth-child(4n + 2)::before {
   --background: #ffe2f0;
 }
 
-ul.menu li:nth-child(4n + 3):before {
+ul.menu li:nth-child(4n + 3)::before {
   --background: #f7f7fe;
 }
 
-ul.menu li:nth-child(4n + 4):before {
+ul.menu li:nth-child(4n + 4)::before {
   --background: #defef0;
 }
 
-ul.menu li:before {
+ul.menu li::before {
   background: var(--background);
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
@@ -121,7 +121,7 @@ button {
   background: #6b00f5;
   border: none;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
   border-radius: 20px;
   padding: 4px 18px;
   font-size: 1rem;
@@ -156,6 +156,9 @@ button.in-cart {
   grid-template-areas:
     'plate content content'
     'plate quantity price';
+  border-bottom: 1px solid #d7d7f9;
+  margin-bottom: 45px;
+  padding-bottom: 45px;
 }
 
 .cart-summary .menu-item {
@@ -245,11 +248,11 @@ button.in-cart {
   left: 2px;
 }
 
-.cart-summary li {
+/* .cart-summary li {
   border-bottom: 1px solid #d7d7f9;
   margin-bottom: 45px;
   padding-bottom: 45px;
-}
+} */
 
 .cart-summary li:last-child {
   border-bottom: 0;

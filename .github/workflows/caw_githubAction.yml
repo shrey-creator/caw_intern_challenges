@@ -5,17 +5,30 @@ jobs:
     name: Run linters
     runs-on: ubuntu-latest
     steps:
-      - name: Check out Git repository
+      - name: Checkout Code
         uses: actions/checkout@v2
-      # ESLint and Prettier must be in `package.json`
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
         with:
-          eslint: true
-          prettier: true
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
 
-      - uses: actions/checkout@v1
-      - uses: actions-hub/stylelint@master
+      - name: Lint Code Base
+        uses: github/super-linter@v3
         env:
-          PATTERN: '**.css'
-          INDENT_SPACES: 4
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # steps:
+    #   - name: Check out Git repository
+    #     uses: actions/checkout@v2
+    #   # ESLint and Prettier must be in `package.json`
+    #   - name: Run linters
+    #     uses: wearerequired/lint-action@v2
+    #     with:
+    #       eslint: true
+    #       prettier: true
+
+    #   - uses: actions/checkout@v1
+    #   - uses: actions-hub/stylelint@master
+    #     env:
+    #       PATTERN: '**.css'
+    #       INDENT_SPACES: 4

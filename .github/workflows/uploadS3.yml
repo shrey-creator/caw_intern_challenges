@@ -3,7 +3,7 @@ name: Upload Website
 on:
   push:
     branches:
-      - develop
+      - feature/stylelint
 
 jobs:
   deploy:
@@ -15,5 +15,13 @@ jobs:
           args: --acl public-read --follow-symlinks --delete --exclude '.*' --exclude 'client' --exclude 'readme.md' --exclude 'package.json' --exclude 'package-lock.json'
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: invalidate cloudfront distribution and wait for completion
+        uses: muratiger/invalidate-cloudfront-and-wait-for-completion-action@master
+        env:
+          DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID }}
+          PATHS: '/*'
+          AWS_REGION: 'us-east-1'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

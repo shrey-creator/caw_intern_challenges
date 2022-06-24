@@ -9,12 +9,12 @@
     }
   },
   "lint-staged": {
-    "*.{html,js}": [
-      "npx prettier --write",
+    "*.{js}": [
+      "npx prettier . --write",
       "npx eslint "
     ],
     "*.css": [
-      "npx stylelint --fix"
+      "npx stylelint . --fix"
     ]
   },
   "devDependencies": {

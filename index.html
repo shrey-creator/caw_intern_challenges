@@ -7,10 +7,14 @@
     <title>Links website</title>
     <style>
       body {
-        background-image: url(https://www.w3schools.com/howto/img_link_tree_template1_bg.jpg); /* The image used for background*/
-        background-repeat: no-repeat; /* Do not repeat the image */
-        background-position: center; /* Center the image */
-        background-size: cover; /* Resize the background image to cover the entire container */
+        background-image: url(https://www.w3schools.com/howto/img_link_tree_template1_bg.jpg);
+        /* The image used for background*/
+        background-repeat: no-repeat;
+        /* Do not repeat the image */
+        background-position: center;
+        /* Center the image */
+        background-size: cover;
+        /* Resize the background image to cover the entire container */
       }
 
       .container {
@@ -29,20 +33,22 @@
       .links-container {
         display: flex;
         flex-direction: column;
-        jusify-content: center;
+        /* jusify-content: center; */
         align-items: center;
       }
 
       .link {
         min-width: 50% !important;
       }
+      /* 
+    @media (min-width: 1200px)  {
+      max-width: 1140px;
+    }
 
-      @media (min-width: 1200px) .container {
-        max-width: 1140px;
-      }
-      @media (min-width: 992px) .container {
-        max-width: 960px;
-      }
+    @media (min-width: 992px) {
+      max-width : 960px;
+    } */
+
       @media (min-width: 768px) {
         .container {
           max-width: 720px;
@@ -52,6 +58,7 @@
           width: 100%;
         }
       }
+
       @media (min-width: 576px) {
         .container {
           max-width: 540px;
